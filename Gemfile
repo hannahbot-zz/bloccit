@@ -53,3 +53,6 @@ end
 
 # Use Devise for authentication
   gem 'devise'
+
+# Use Cancan for authorization rules
+  gem 'cancan'
