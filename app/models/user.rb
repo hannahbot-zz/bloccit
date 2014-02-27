@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
+
   before_create :set_member
 
   ROLES = %w[member moderator admin]
