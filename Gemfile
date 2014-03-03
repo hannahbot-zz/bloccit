@@ -1,5 +1,14 @@
 source 'https://rubygems.org'
 
+# Credentials
+gem 'figaro'
+
+# Image stuffs
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
 # Redcarpet
 gem 'redcarpet'
 

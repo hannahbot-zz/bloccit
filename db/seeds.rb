@@ -20,7 +20,9 @@ require 'faker'
   u.save
 
   rand(5..12).times do
+    topic = topics.first
     p = u.posts.create(
+        topic: topic,
         title: Faker::Lorem.words(rand(1..10)).join(" "),
         body: Faker::Lorem.paragraphs(rand(1..4)).join("\n"))
     # set the created_at to a time within the past year
@@ -64,4 +66,5 @@ u.save
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Post.count} posts created"
+puts "#{Topic.count} Topics created"
 puts "#{Comment.count} comments created"
