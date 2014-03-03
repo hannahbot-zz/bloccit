@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Redcarpet
+gem 'redcarpet'
 
 # Pry
 gem 'pry'
