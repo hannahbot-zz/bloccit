@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Pagination
+gem 'will_paginate', '~> 3.0'
+
 # Credentials
 gem 'figaro'
 
