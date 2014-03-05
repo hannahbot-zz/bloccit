@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Authentication
+gem 'omniauth-facebook'
+
 # Pagination
 gem 'will_paginate', '~> 3.0'
 
