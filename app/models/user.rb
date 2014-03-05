@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :comments
+  has_many :votes, dependent: :destroy
 
   before_create :set_member
 
@@ -28,7 +29,7 @@ class User < ActiveRecord::Base
     end
     user
   end
-  
+
   ROLES = %w[member moderator admin]
   def role?(base_role)
     role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(role)
