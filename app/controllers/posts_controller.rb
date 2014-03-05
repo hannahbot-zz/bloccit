@@ -45,6 +45,20 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @topic = Topic.find(params[:topic_id])
+    @post = Post.find(params[:id])
+
+    title = @post.title
+    authorize! :destroy, @post, message: "You need to own the post to edit it."
+    if @post.destroy
+      redirect_to [@topic, @post], notice: "\"#{title}\" was deleted successfully."
+    else
+      flash[:error] = "There was an error deleting the post. Please try again."
+      render :new
+    end
+  end
+
   private
     def post_params
       params.require(:post).permit(:title, :body, :image)
