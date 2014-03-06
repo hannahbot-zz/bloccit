@@ -15,7 +15,7 @@
   <div class="span4">
   <h2><%= @comments.count %> Comments</h2>
 
-    <%= render 'comments/comments' %>
+    <%= render @comments %>
 
     <% if can? :create, Comment %>
       <hr/>
