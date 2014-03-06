@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
   has_many :votes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   before_create :set_member
 
@@ -28,6 +29,10 @@ class User < ActiveRecord::Base
       user.save
     end
     user
+  end
+
+  def favorited(post)
+    self.favorites.where(post_id: post.id).first
   end
 
   ROLES = %w[member moderator admin]
