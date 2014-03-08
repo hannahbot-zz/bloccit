@@ -15,3 +15,16 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+  $(".js-show-hide").click(function() {
+    var selector = "." + $(this).attr('data-selector');
+    if ($(selector).is(":hidden")) {
+      $(selector).slideToggle("slow");
+    }
+    else {
+      $(selector).slideUp("slow");
+    }
+    return false;
+  });
+});
