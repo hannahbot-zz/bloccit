@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Static Assets
+gem 'rails_12factor', group: :production
+
 # Authentication
 gem 'omniauth-facebook'
 
