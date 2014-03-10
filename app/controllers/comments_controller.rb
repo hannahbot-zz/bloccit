@@ -8,13 +8,17 @@ class CommentsController < ApplicationController
 
     @comment = current_user.comments.build(comment_params)
     @comment.post = @post
+    @new_comment = Comment.new
 
     authorize! :create, @comment, message: "You need to be signed up to do that."
     if @comment.save
-      redirect_to [@topic, @post], notice: "Post was saved successfully."
+      flash[:notice] = "Comment was saved"
     else
       flash[:error] = "There was an error saving the post. Please try again."
-      render 'posts/show'
+    end
+
+    respond_with(@comment) do |f|
+      f.html { redirect_to [@topic, @post]}
     end
   end
 
@@ -29,7 +33,7 @@ class CommentsController < ApplicationController
       flash[:notice] = "Comment was removed"
     else
       flash[:error] = "There was an error saving the post. Please try again."
-    end  
+    end
 
     respond_with(@comment) do |f|
       f.html { redirect_to [@topic, @post]}

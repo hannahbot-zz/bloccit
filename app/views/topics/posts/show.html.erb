@@ -15,7 +15,9 @@
   <div class="span4">
   <h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
 
+    <div class="js-comments">
     <%= render partial: 'comments/comment', collection: @comments %>
+    </div>
 
     <% if can? :create, Comment %>
       <hr/>
